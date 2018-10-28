@@ -8,12 +8,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.redsponge.notenoughtime.screen.CollectTheDotsScreen;
 import com.redsponge.notenoughtime.screen.IntroScreen;
+import com.redsponge.notenoughtime.screen.MenuScreen;
 
 public class NotEnoughTime extends Game {
 
+	public static NotEnoughTime instance;
+
 	@Override
 	public void create () {
-		setScreen(new CollectTheDotsScreen());
+		instance = this;
+		setScreen(new IntroScreen());
 	}
 
 }

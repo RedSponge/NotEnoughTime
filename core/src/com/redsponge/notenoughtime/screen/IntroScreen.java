@@ -11,6 +11,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.redsponge.notenoughtime.NotEnoughTime;
 
 public class IntroScreen extends AbstractScreen {
 
@@ -50,7 +51,9 @@ public class IntroScreen extends AbstractScreen {
         } else if(secondsSince < 12) {
             render = "Not having time on Saturday\nand school on Sunday sure is annoying :/";
         } else if(secondsSince < 18) {
-            render = "Anyhoo..\n enjoy a series of short games with the theme of time!\n(there will be as many as\nI can make in this short period of time)";
+            render = "Anyhoo..\n enjoy these mini games which I did manage to make with the theme of time!";
+        } else {
+            NotEnoughTime.instance.setScreen(new MenuScreen());
         }
 
         viewport.apply();

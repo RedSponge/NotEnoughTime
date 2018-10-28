@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.redsponge.notenoughtime.screen.CollectTheDotsScreen;
 
@@ -40,11 +41,37 @@ public class CollectTheDotsPlayer {
             vel.add(-speed, 0);
         }
         pos.mulAdd(vel, delta*2);
+
+        Rectangle me = new Rectangle(pos.x, pos.y, size, size);
+        for (Vector2 dot : screen.getDots()) {
+            Rectangle d = new Rectangle(dot.x, dot.y, 10, 10);
+            if(me.overlaps(d)) {
+                screen.score+=10;
+                screen.getDots().removeValue(dot, true);
+            }
+        }
+
+        if(pos.x < 0) {
+            pos.x = 0;
+            vel.x = 0;
+        }
+        if(pos.x + size > screen.getViewport().getWorldWidth()) {
+            pos.x = screen.getViewport().getWorldWidth() - size;
+            vel.x = 0;
+        }
+        if(pos.y < 0) {
+            pos.y = 0;
+            vel.y = 0;
+        }
+        if(pos.y + size > screen.getViewport().getWorldHeight()) {
+            pos.y = screen.getViewport().getWorldHeight() - size;
+            vel.y = 0;
+        }
     }
 
     public void render(SpriteBatch batch, ShapeRenderer shapeRenderer) {
         shapeRenderer.begin(ShapeType.Filled);
-        shapeRenderer.setColor(Color.YELLOW);
+        shapeRenderer.setColor(Color.GREEN);
         shapeRenderer.rect(pos.x, pos.y, size, size);
         shapeRenderer.end();
     }
