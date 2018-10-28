@@ -23,7 +23,7 @@ public abstract class GameScreen extends AbstractScreen{
         titleFont = gen.generateFont(param);
         gen.dispose();
 
-        gen = new FreeTypeFontGenerator(Gdx.files.internal("dotty.TTF"));
+        gen = new FreeTypeFontGenerator(Gdx.files.internal("dotty.ttf"));
         param = new FreeTypeFontParameter();
         param.size = 32;
         instructionsFont = gen.generateFont(param);

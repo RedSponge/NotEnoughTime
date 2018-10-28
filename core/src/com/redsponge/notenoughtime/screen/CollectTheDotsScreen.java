@@ -32,7 +32,7 @@ public class CollectTheDotsScreen extends GameScreen{
     public void setup() {
         super.setup();
         viewport = new FitViewport(500, 500);
-        FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal("dotty.TTF"));
+        FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal("dotty.ttf"));
         FreeTypeFontParameter param = new FreeTypeFontParameter();
         param.size = 32;
         countersFont = gen.generateFont(param);
