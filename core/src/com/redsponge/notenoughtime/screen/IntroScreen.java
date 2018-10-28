@@ -49,9 +49,7 @@ public class IntroScreen extends AbstractScreen {
         } else if(secondsSince < 8) {
             render = "As you can see..\nI didn't have enough time to make a game...";
         } else if(secondsSince < 12) {
-            render = "Not having time on Saturday\nand school on Sunday sure is annoying :/";
-        } else if(secondsSince < 18) {
-            render = "Anyhoo..\n enjoy these mini games which I did manage to make with the theme of time!";
+            render = "I did however.. Manage to make some minigames about the theme \"Time\"!";
         } else {
             NotEnoughTime.instance.setScreen(new MenuScreen());
         }
